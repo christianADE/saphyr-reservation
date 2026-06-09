@@ -71,11 +71,20 @@ docker rm saphyr-app
 
 ## Configuration SMTP
 
+### Pour tester gratuitement avec Ethereal
+1. Allez sur [https://ethereal.email/](https://ethereal.email/)
+2. Cliquez sur "Create Ethereal Account"
+3. Copiez les informations SMTP affichées
+4. Mettez-les dans votre fichier `.env`
+
+Les emails envoyés seront visibles sur la page "Messages" de votre compte Ethereal !
+
+### Pour un usage en production
 Pour l'envoi d'email, configurez ces variables dans `.env` :
-- `SMTP_HOST` : hôte SMTP (ex: `smtp.gmail.com`)
+- `SMTP_HOST` : hôte SMTP (ex: `smtp.gmail.com`, `smtp.sendgrid.net`)
 - `SMTP_PORT` : port SMTP (ex: `587`)
 - `SMTP_USER` : votre email
-- `SMTP_PASS` : votre mot de passe SMTP
+- `SMTP_PASS` : votre mot de passe SMTP (pour Gmail, utilisez un "App Password")
 - `MAIL_RECIPIENT` : email qui recevra les réservations
 
 ## Informations de contact
