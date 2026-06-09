@@ -1,0 +1,20 @@
+# Dépendances
+node_modules/
+frontend/node_modules/
+
+# Fichiers d'environnement (contiennent des secrets)
+.env
+
+# Build outputs
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ancien dossier backend (inutile)
+backend/

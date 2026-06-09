@@ -1,0 +1,21 @@
+{
+  "name": "saphyr-reservation-simple",
+  "version": "1.0.0",
+  "description": "Systeme de reservation de vol simple avec envoi d'email",
+  "main": "backend.js",
+  "scripts": {
+    "dev:backend": "node backend.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemailer": "^6.9.15",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
