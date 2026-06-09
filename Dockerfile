@@ -19,6 +19,6 @@ COPY .env ./
 # Copier le frontend buildé
 COPY --from=build-frontend /app/frontend/dist ./frontend/dist
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["node", "backend.js"]

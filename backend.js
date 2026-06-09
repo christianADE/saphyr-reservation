@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -71,6 +71,12 @@ app.post('/api/reservation', async (req, res) => {
       </div>
     `;
 
+    console.log("Tentative d'envoi d'email avec :");
+    console.log("- SMTP_HOST:", process.env.SMTP_HOST);
+    console.log("- SMTP_PORT:", process.env.SMTP_PORT);
+    console.log("- SMTP_USER:", process.env.SMTP_USER);
+    console.log("- MAIL_RECIPIENT:", recipient);
+
     await transport.sendMail({
       from: `"Saphyr Tours" <${process.env.SMTP_USER || 'no-reply@saphyr.com'}>`,
       to: recipient,
@@ -78,10 +84,11 @@ app.post('/api/reservation', async (req, res) => {
       html,
     });
 
+    console.log("Email envoyé avec succès !");
     res.status(201).json({ success: true, message: 'Reservation envoyee par email avec succes' });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Erreur lors de l\'envoi de l\'email. Veuillez reessayer.' });
+    console.error("Erreur détaillée :", err);
+    res.status(500).json({ error: 'Erreur lors de l\'envoi de l\'email. Veuillez reessayer.', details: err.message });
   }
 });
 
