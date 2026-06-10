@@ -1,6 +1,14 @@
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import logo from "./assets/logo.png";
+
+// Couleurs du logo
+const COLORS = {
+  purple: "#6B4BAA",
+  purpleLight: "#A98DD8",
+  orange: "#F78524",
+};
 
 const initialForm = {
   nom: "",
@@ -35,13 +43,13 @@ const ListIcon = () => (
 function SectionTitle({ children }) {
   return (
     <h6 style={{
-      color: "#0a2d6e",
+      color: COLORS.purple,
       fontWeight: 700,
       textTransform: "uppercase",
       letterSpacing: 1,
       fontSize: "0.78rem",
       marginBottom: 16,
-      borderBottom: "2px solid #f5a623",
+      borderBottom: `2px solid ${COLORS.orange}`,
       paddingBottom: 8,
     }}>
       {children}
@@ -102,65 +110,45 @@ function App() {
 
   return (
     <>
-      <nav style={{
-        background: "linear-gradient(135deg, #0a2d6e 0%, #1a4fa8 100%)",
+      <div style={{
+        background: `linear-gradient(135deg, ${COLORS.purple} 0%, ${COLORS.purpleLight} 100%)`,
         boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
-        padding: "12px 0",
+        padding: "30px 0",
+        position: "relative",
+        overflow: "hidden",
       }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-          <a href="#" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-            <div style={{
-              background: "linear-gradient(135deg, #f5a623 0%, #e8891a 100%)",
-              borderRadius: "50%",
-              width: 44,
-              height: 44,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 2px 8px rgba(245,166,35,0.4)",
-              color: "white",
-            }}>
-              <PlaneIcon />
-            </div>
-            <div>
-              <div>
-                <span style={{ color: "#f5a623", fontWeight: 800, fontSize: "1.25rem", letterSpacing: 1 }}>SAPHYR</span>
-                <span style={{ color: "white", fontWeight: 300, fontSize: "1.25rem", marginLeft: 4 }}>TOURS</span>
-                <span style={{ color: "white", fontWeight: 700, fontSize: "1.25rem", marginLeft: 4 }}>AFRICA</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </nav>
-
-      {!submitted && (
         <div style={{
-          background: "linear-gradient(135deg, #0a2d6e 0%, #1a4fa8 60%, #2563c7 100%)",
-          padding: "48px 0 80px",
-          position: "relative",
-          overflow: "hidden",
-        }}>
-          <div style={{
-            position: "absolute", inset: 0, opacity: 0.05,
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-          }} />
-          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", textAlign: "center", color: "white", position: "relative" }}>
-            <h1 style={{ fontWeight: 800, fontSize: "2.5rem", letterSpacing: -1, marginBottom: 8 }}>
-              Reservation de Vol
-            </h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1.1rem", maxWidth: 500, margin: "0 auto" }}>
-              Voyagez a travers l'Afrique et le monde avec Saphyr Tours
-            </p>
+          position: "absolute", inset: 0, opacity: 0.05,
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+        }} />
+        
+        {/* Header content */}
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", gap: "100px", position: "relative" }}>
+          {/* Logo à gauche avec fond blanc */}
+          <div style={{ background: "white", borderRadius: "16px", padding: "20px 30px", boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}>
+            <img src={logo} alt="SAPHYR TOURS AFRICA" style={{ maxWidth: "170px", height: "auto", display: "block" }} />
           </div>
-        </div>
-      )}
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", marginTop: submitted ? 48 : 24, paddingBottom: 60 }}>
+          {/* Texte */}
+          {!submitted && (
+            <div style={{ color: "white" }}>
+              <h1 style={{ fontWeight: 800, fontSize: "2.2rem", letterSpacing: -1, marginBottom: 8 }}>
+                Reservation de Vol
+              </h1>
+              <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "1.05rem", maxWidth: 480 }}>
+                Voyagez a travers l'Afrique et le monde avec Saphyr Tours Africa
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", marginTop: "30px", paddingBottom: 60 }}>
         {submitted ? (
           <div style={{ display: "flex", justifyContent: "center", marginTop: 60 }}>
             <div style={{ maxWidth: 600, width: "100%", background: "white", borderRadius: 24, boxShadow: "0 10px 40px rgba(0,0,0,0.2)", overflow: "hidden" }}>
               <div style={{
-                background: "linear-gradient(135deg, #1a7a3a 0%, #28a745 100%)",
+                background: `linear-gradient(135deg, ${COLORS.purple} 0%, ${COLORS.purpleLight} 100%)`,
                 padding: "48px 32px 36px",
                 textAlign: "center",
               }}>
@@ -184,8 +172,8 @@ function App() {
 
               <div style={{ padding: "36px 40px" }}>
                 <div style={{
-                  background: "#f8f9ff",
-                  border: "1px solid #e0e8ff",
+                  background: "#f8f7ff",
+                  border: `1px solid ${COLORS.purpleLight}`,
                   borderRadius: 14,
                   padding: "20px 24px",
                   marginBottom: 28,
@@ -201,14 +189,14 @@ function App() {
                   style={{
                     width: "100%",
                     padding: "14px",
-                    background: "linear-gradient(135deg, #0a2d6e, #1a4fa8)",
+                    background: `linear-gradient(135deg, ${COLORS.purple}, ${COLORS.purpleLight})`,
                     color: "white",
                     borderRadius: 12,
                     fontWeight: 700,
                     border: "none",
                     fontSize: "1rem",
                     cursor: "pointer",
-                    boxShadow: "0 4px 15px rgba(10,45,110,0.25)",
+                    boxShadow: `0 4px 15px rgba(107,75,170,0.25)`,
                   }}
                 >
                   Faire une nouvelle reservation
@@ -220,7 +208,7 @@ function App() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ maxWidth: 800, width: "100%", background: "white", borderRadius: 20, boxShadow: "0 10px 40px rgba(0,0,0,0.2)", overflow: "hidden" }}>
               <div style={{
-                background: "linear-gradient(135deg, #f5a623 0%, #e8891a 100%)",
+                background: `linear-gradient(135deg, ${COLORS.orange} 0%, #e0751a 100%)`,
                 padding: "20px 28px",
                 display: "flex", alignItems: "center", gap: 14,
               }}>
@@ -256,7 +244,7 @@ function App() {
                       </div>
                       <div>
                         <FieldLabel>Numero de telephone *</FieldLabel>
-                        <input type="tel" name="telephone" value={form.telephone} onChange={handleChange} placeholder="+221 77 XXX XX XX" required style={{ ...inputStyle, width: "100%" }} />
+                        <input type="tel" name="telephone" value={form.telephone} onChange={handleChange} placeholder="+228 92 XX XX XX" required style={{ ...inputStyle, width: "100%" }} />
                       </div>
                     </div>
                   </div>
@@ -280,7 +268,7 @@ function App() {
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                       <div>
                         <FieldLabel>Parcours *</FieldLabel>
-                        <input type="text" name="parcours" value={form.parcours} onChange={handleChange} placeholder="Ex : Dakar - Paris" required style={{ ...inputStyle, width: "100%" }} />
+                        <input type="text" name="parcours" value={form.parcours} onChange={handleChange} placeholder="Ex : Lomé - Paris" required style={{ ...inputStyle, width: "100%" }} />
                       </div>
                       <div>
                         <FieldLabel>Date du vol *</FieldLabel>
@@ -301,7 +289,7 @@ function App() {
                     style={{
                       width: "100%",
                       padding: "16px",
-                      background: "linear-gradient(135deg, #0a2d6e 0%, #1a4fa8 100%)",
+                      background: `linear-gradient(135deg, ${COLORS.purple} 0%, ${COLORS.purpleLight} 100%)`,
                       color: "white",
                       borderRadius: 12,
                       fontWeight: 700,
@@ -309,7 +297,7 @@ function App() {
                       border: "none",
                       cursor: isLoading ? "not-allowed" : "pointer",
                       opacity: isLoading ? 0.8 : 1,
-                      boxShadow: "0 4px 15px rgba(10,45,110,0.3)",
+                      boxShadow: `0 4px 15px rgba(107,75,170,0.3)`,
                     }}
                   >
                     {isLoading ? "Traitement en cours..." : "Confirmer la reservation"}
@@ -322,19 +310,19 @@ function App() {
       </div>
 
       <footer style={{
-        background: "#0a1a3d", color: "rgba(255,255,255,0.9)",
+        background: COLORS.purple, color: "rgba(255,255,255,0.9)",
         padding: "40px 24px", fontSize: "0.95rem",
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", marginBottom: "24px" }}>
             <div>
-              <h4 style={{ color: "#f5a623", marginBottom: "12px", fontSize: "1.1rem" }}>Lomé - Togo</h4>
+              <h4 style={{ color: COLORS.orange, marginBottom: "12px", fontSize: "1.1rem" }}>Lomé - Togo</h4>
               <p style={{ margin: "4px 0" }}>En face de UTB Avenou</p>
               <p style={{ margin: "4px 0" }}>+228 9287 8585</p>
               <p style={{ margin: "4px 0" }}>+228 9287 8484</p>
             </div>
             <div>
-              <h4 style={{ color: "#f5a623", marginBottom: "12px", fontSize: "1.1rem" }}>Abidjan - Côte d'Ivoire</h4>
+              <h4 style={{ color: COLORS.orange, marginBottom: "12px", fontSize: "1.1rem" }}>Abidjan - Côte d'Ivoire</h4>
               <p style={{ margin: "4px 0" }}>+225 05 76 80 08 08</p>
             </div>
           </div>

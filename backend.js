@@ -29,13 +29,13 @@ app.post('/api/reservation', async (req, res) => {
 
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div style="background: linear-gradient(135deg, #0a2d6e, #1a4fa8); padding: 24px; text-align: center;">
-          <h1 style="color: #f5a623; margin: 0; font-size: 1.5rem; letter-spacing: 2px;">SAPHYR TOURS AFRICA</h1>
+        <div style="background: linear-gradient(135deg, #6B4BAA, #A98DD8); padding: 24px; text-align: center;">
+          <h1 style="color: #F78524; margin: 0; font-size: 1.5rem; letter-spacing: 2px;">SAPHYR TOURS AFRICA</h1>
           <p style="color: rgba(255,255,255,0.8); margin: 6px 0 0; font-size: 0.9rem;">Nouvelle Reservation de Vol</p>
         </div>
 
         <div style="padding: 28px 32px;">
-          <h2 style="color: #0a2d6e; border-bottom: 2px solid #f5a623; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+          <h2 style="color: #6B4BAA; border-bottom: 2px solid #F78524; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
             Informations personnelles
           </h2>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
@@ -46,7 +46,7 @@ app.post('/api/reservation', async (req, res) => {
             <tr><td style="padding: 8px 0; color: #666;">Telephone</td><td style="padding: 8px 0; font-weight: 600; color: #222;">${telephone}</td></tr>
           </table>
 
-          <h2 style="color: #0a2d6e; border-bottom: 2px solid #f5a623; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+          <h2 style="color: #6B4BAA; border-bottom: 2px solid #F78524; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
             Documents de voyage
           </h2>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
@@ -54,7 +54,7 @@ app.post('/api/reservation', async (req, res) => {
             <tr><td style="padding: 8px 0; color: #666;">Date d'expiration</td><td style="padding: 8px 0; font-weight: 600; color: #222;">${dateExpirationPasseport}</td></tr>
           </table>
 
-          <h2 style="color: #0a2d6e; border-bottom: 2px solid #f5a623; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+          <h2 style="color: #6B4BAA; border-bottom: 2px solid #F78524; padding-bottom: 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
             Details du vol
           </h2>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
@@ -63,7 +63,7 @@ app.post('/api/reservation', async (req, res) => {
           </table>
         </div>
 
-        <div style="background: #f8f9ff; padding: 16px 32px; text-align: center; border-top: 1px solid #e0e0e0;">
+        <div style="background: #f8f7ff; padding: 16px 32px; text-align: center; border-top: 1px solid #e0e0e0;">
           <p style="color: #888; font-size: 0.8rem; margin: 0;">
             Saphyr Tours Africa &mdash; Ce message a ete genere automatiquement depuis le formulaire de reservation.
           </p>
